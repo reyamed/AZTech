@@ -36,7 +36,7 @@ vous pouvez tester l'application à travers ce lien: [demo](https://gotechprojec
     -details/                    … Contient la page de details. Cette page est accessible lorsqu'on clique sur chaque formation
     -add-new-task/                    … contient la charte des formations choisi par l'utilisateur
     -recap/                    … contient la page recapitulatif aprés avoir effectuer les achats
-    -models/                  … this folder contain the model of our objects (cart-item+course+user)
+    -models/                  … contient les models des formations
         - formation.ts                   … contain le model des formation (ça a été abondonné après)
     -services/
         - fireservice.service.ts              … Contient toutes les fonctions en relation avec le service firebase
