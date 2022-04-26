@@ -1,0 +1,32 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" *ngIf="lesFormations && PersonalInfos" id="gen">
+  <ion-row>
+    <ion-col class="content-col">
+      <ion-text color="dark">
+        <h1 class="user-name">Recapitulatif</h1>
+      </ion-text>
+      <p>Votre nom: {{PersonalInfos.name }}</p>
+      <hr>
+      <h3>les formations selectionnées:</h3>
+      <div *ngFor="let item of lesFormations;  let i = index" >
+        
+        <ion-label>{{item.Nom}}</ion-label  >
+        <br>
+        <ion-label> Prix: {{ item.Prix}} DH</ion-label>
+        <br>
+        <ion-label> Derniere mise à jour: {{ item.Date}} </ion-label>
+      </div>
+      <br>
+      <hr>
+      <ion-label id="prixtotal"> le prix total: {{ PrixTotal}} DH</ion-label>
+
+    </ion-col>
+  </ion-row>
+  <ion-button (click)='confirm()' expand='block'>confirm</ion-button>
+  </ion-content>

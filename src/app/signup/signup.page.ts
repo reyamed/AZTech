@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FireserviceService } from '../fireservice.service';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -13,7 +14,8 @@ export class SignupPage implements OnInit {
   public name:any;
   constructor(
     public router:Router,
-    public fireService:FireserviceService
+    public fireService:FireserviceService,
+    private alertCtrl: AlertController,
     
   ) { }
 
@@ -24,11 +26,16 @@ export class SignupPage implements OnInit {
           email:this.email,
           password:this.password,
           name:this.name,
-          uid:res.user.uid
+          uid:res.user.uid,
+          formaitons: []
         }
-        this.fireService.saveDetails(data).then(res=>{
-         alert('Account Created!');
-         this.router.navigateByUrl('home');
+        this.fireService.saveDetails(data).then(async res=>{
+          const alert = await this.alertCtrl.create({
+            header: 'compte',
+            message: 'votre compte a été crée avec succes',
+          });
+          alert.present();
+         this.router.navigateByUrl('login');
         },err=>{
           console.log(err);
         })

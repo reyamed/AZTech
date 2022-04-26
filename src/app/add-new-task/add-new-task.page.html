@@ -1,13 +1,13 @@
 <ion-header class="ion-no-border">
   <ion-toolbar >
-    <ion-title>char of </ion-title>
+    <ion-title >La charte </ion-title>
     <ion-icon name="close" slot="end" size="larger" class="ion-padding" (click)="dismis()"></ion-icon>
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content >
-  <ion-card class="ion-align-self-center" >
+<!-- <ion-content > -->
+  <!-- <ion-card class="ion-align-self-center" >
     <ion-item>
       <ion-textarea [(ngModel)]="itemName"  placeholder="Write task here"></ion-textarea>
    </ion-item>
@@ -45,12 +45,56 @@
          <ion-icon slot="icon-only" name="add-outline"></ion-icon>
        </ion-button>
      </ion-chip>
-   </ion-item>
+   </ion-item> -->
+   <!-- <h2>{{lesFormations}} </h2> -->
+   <!-- <tr *ngIf="lesFormations">  
+    <td>{{ lesFormations.formations }}</td>  
+    
+  </tr>   -->
+   <!-- <h2 *ngIf="lesFormations !== undefined">{{lesFormations | json}} </h2>
+   <h2 *ngIf="infos !== undefined">{{infos | json }} </h2>
+   <ion-button class="ion-margin" expand="block" (click)="add()">Add Task</ion-button> -->
 
-   <ion-button class="ion-margin" expand="block" (click)="add()">Add Task</ion-button>
-
-  </ion-card>
+  <!-- </ion-card> -->
  
 
 
+<!-- </ion-content> -->
+
+<ion-content [fullscreen]="true" *ngIf="lesFormations">
+ 
+  <ion-card *ngFor="let item of lesFormations;  let i = index" class="ion-margin"  >
+    <ion-card-header>
+      
+      <ion-card-subtitle [style.color]=>
+        {{item.Nom}} 
+      </ion-card-subtitle>
+      <div class="vertical-center">
+        <div class="center">
+          <ion-img [src]="item.Image" class="ion-align-self-end" style="height: 150px; width: 150px;"></ion-img>
+        </div>   
+      </div>
+    </ion-card-header>
+ 
+    <ion-card-content >
+     
+    <!--  <ion-label>{{ item.Prix}} DH </ion-label>
+       <ion-label>Due {{item.Date }}</ion-label> --> 
+   </ion-card-content>
+
+  </ion-card> 
+  <div *ngIf="!(disableB | async)" class="notfound">
+    <p id="notfound">La charte est vide </p>
+    <div class="vertical-center">
+      <div class="center">
+        <ion-img src="assets/logos/basket.jpg" class="ion-align-self-end" style="height: 150px; width: 150px;"></ion-img>
+      </div> 
+    </div>
+  </div>
+  
+
+  <ion-button class="ion-margin" expand="block" (click)="Buy()" *ngIf="(disableB | async)" >passer à l'achat</ion-button>
+
 </ion-content>
+
+

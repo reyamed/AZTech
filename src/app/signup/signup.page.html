@@ -1,13 +1,12 @@
-<ion-header>
+ <ion-header>
   <ion-toolbar>
-    <ion-title>signup</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="login" ></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-pading">
+<!--<ion-content class="ion-pading">
   <div class="form">
     <ion-item>
       <ion-label position="stacked">Name</ion-label>
@@ -23,5 +22,20 @@
       <ion-input [(ngModel)]='password'></ion-input>
     </ion-item>
     <ion-button (click)='signup()' expand='block'>Signup</ion-button>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <div id="header">
+    <h1>Signup</h1>
+    <img src="assets/icon/logo2.png">
+  </div>
+  <div id="form">
+    <app-input placeholder="Name" [(ngModel)]='name' name="name" ngDefaultControl></app-input>
+    <app-input placeholder="Email" [(ngModel)]='email' name="email" ngDefaultControl></app-input>
+    <app-input type="password" placeholder="Password" [(ngModel)]='password' name="password" ngDefaultControl></app-input>
+    <ion-button  expand="block"  shape="round" (click)='signup()'>
+      Signup
+    </ion-button>
   </div>
 </ion-content>

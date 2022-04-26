@@ -12,25 +12,7 @@ import { FireserviceService } from '../fireservice.service';
 export class HomePage {
 
   formationlist:any
-//   todoList = [{
-//     itemName: 'Coding',
-//     itemDueDate: '13-05-21',
-//     itemPriority: 'high',
-//     itemCategory: 'Work'
-//   },
-//   {
-//     itemName: 'Design',
-//     itemDueDate: '13-10-21',
-//     itemPriority: 'low',
-//     itemCategory: 'Personal'
-//   },
-//   {
-//     itemName: 'Spring',
-//     itemDueDate: '14-05-21',
-//     itemPriority: 'middle',
-//     itemCategory: 'Personal'
-//   }
-// ]
+
 
   today: number = Date.now()
 
@@ -40,9 +22,7 @@ export class HomePage {
     const modal = await this.modalCtrl.create({
       component: AddNewTaskPage,
     })
-    modal.onDidDismiss().then(newTaskObj =>(
-     this.formationlist.push(newTaskObj.data)
-    ))
+    modal.onDidDismiss().then()
     return await modal.present()
   }
   
@@ -60,10 +40,12 @@ export class HomePage {
         this.formationlist = res.map(e => {
         return {
           docid: e.payload.doc.id,
-          itemName: e.payload.doc.data()["itemName"],
-          itemCategory: e.payload.doc.data()["itemCategory"],
-          itemPriority: e.payload.doc.data()["itemPriority"],
-          itemDueDate: e.payload.doc.data()["itemDueDate"]
+          Nom: e.payload.doc.data()["Nom"],
+          Description: e.payload.doc.data()["Description"],
+          Prix: e.payload.doc.data()["Prix"],
+          Image: "assets/logos/" + e.payload.doc.data()["Image"],
+          Date: e.payload.doc.data()["Date"]
+
         }
         }) 
         console.log(this.formationlist);
@@ -77,4 +59,9 @@ export class HomePage {
     showDetails(docid){
       this.router.navigateByUrl('details/' + docid);
     }
+    logout(){
+      this.fireService.logout();
+      this.router.navigateByUrl("login");
+    }
+   
 }

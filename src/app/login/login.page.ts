@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { FireserviceService } from '../fireservice.service';
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginPage implements OnInit {
   public password:any;
   constructor(
     public router:Router,
-    public fireService:FireserviceService
+    public fireService:FireserviceService,
+    private alertCtrl: AlertController,
   ) { 
     
   }
@@ -25,20 +27,19 @@ export class LoginPage implements OnInit {
   //   });
   //}
   login(){
-    this.fireService.loginWithEmail({email:this.email,password:this.password}).then(res=>{
+    this.fireService.loginWithEmail({email:this.email,password:this.password}).then( res=>{
       console.log(res);
       if(res.user.uid){
-        this.fireService.getDetails({uid:res.user.uid}).subscribe(res=>{
-          console.log(res);
-          alert('Welcome '+ res['name']);
-          this.router.navigateByUrl('home')
+        this.fireService.getDetails({uid:res.user.uid}).subscribe( res=>{
+          
         },err=>{
           console.log(err);
         });
-      }
+        this.router.navigateByUrl('home')
+      } 
     },err=>{
       alert(err.message)
-      console.log(err);
+      console.log('email ou mot de passe incorrect');
     })
   }
 

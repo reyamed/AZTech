@@ -28,7 +28,11 @@ const routes: Routes = [
   {
     path: 'details/:xyz',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },  {
+    path: 'recap',
+    loadChildren: () => import('./recap/recap.module').then( m => m.RecapPageModule)
   },
+
 ];
 
 @NgModule({

@@ -11,7 +11,7 @@
   <ion-button  *ngIf="auth.user" (click)="signOut()">Sign out</ion-button>
 
 </ion-content> -->
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
@@ -36,5 +36,22 @@
     <h5 (click)='signup()'>Don't have account? <ion-text color='primary'>signup here</ion-text>
     </h5>
     
+  </div>
+</ion-content> -->
+
+
+<ion-content>
+  <div id="header">
+    <h1>Login</h1>
+    <img src="assets/icon/logo2.png">
+  </div>
+  <div id="form">
+    <app-input placeholder="Email" [(ngModel)]='email' name="email" ngDefaultControl></app-input>
+    <app-input type="password" placeholder="Password" [(ngModel)]='password' name="password" ngDefaultControl></app-input>
+    <ion-button  expand="block"  shape="round" (click)='login()'>
+      Login
+    </ion-button>
+    <h5 (click)='signup()'>Don't have account? <ion-text color='primary'>signup here</ion-text>
+    </h5>
   </div>
 </ion-content>

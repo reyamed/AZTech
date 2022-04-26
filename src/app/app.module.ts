@@ -14,6 +14,7 @@ import { AngularFireAuthModule, USE_EMULATOR as USE_AUTH_EMULATOR } from "@angul
 import { environment } from 'src/environments/environment';
 
 
+
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [

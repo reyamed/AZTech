@@ -1,4 +1,4 @@
-<ion-header [translucent]="true" class="ion-no-border">
+<!-- <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button text="Contacts" defaultHref="/"></ion-back-button>
@@ -33,4 +33,36 @@
     </ion-col>
   </ion-row>
   <ion-button (click)='addToChart(data)' expand='block'>add to chart</ion-button>
-</ion-content>
+</ion-content> -->
+
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" *ngIf="formationDetails" id="gen">
+  <ion-row>
+    <ion-col class="content-col">
+      <ion-text color="dark">
+        <h1 class="user-name">{{formationDetails.Nom }}</h1>
+      </ion-text>
+        <div class="vertical-center">
+          <div class="center">
+            <ion-img [src]="formationDetails.Image" class="ion-align-self-end" style="height: 130px; width: 130px;"></ion-img>
+          </div>   
+        </div>
+        <p>{{formationDetails.Description}}</p>
+        <br>
+        <ion-label> Prix: {{ formationDetails.Prix}} DH</ion-label>
+        <br>
+        <ion-label> Derniere mise à jour: {{ formationDetails.Date}} </ion-label>
+        <ion-button (click)='addToChart(data)' expand='block' *ngIf="(disableB | async)">add to chart</ion-button>
+     
+    </ion-col>
+  </ion-row>
+ 
+  </ion-content>
+
+  
