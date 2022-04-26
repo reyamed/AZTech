@@ -78,7 +78,7 @@ Cette page est accessible via la page home spécifiquement via le boutton vert e
 
 ![img](./sreenshots/chartevide.png)
 
-![img](./sreenshots/charte rempli.png)
+![img](./sreenshots/charterempli.png)
 
 #### Details
 
