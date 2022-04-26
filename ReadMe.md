@@ -76,19 +76,21 @@ C'est page d'acceuil qui permet de lister les formations, l'icon en bas permet d
 
 Cette page est accessible via la page home spécifiquement via le boutton vert en bas, elle permet de lister les formations mis dans la charte par l'utilisateur
 
-![img](./sreenshots/charte.png)
+![img](./sreenshots/chartevide.png)
+
+![img](./sreenshots/charte rempli.png)
 
 #### Details
 
 Cette page contient tous les details de la formation, elle accessible en cliquant sur chaque formation dans la page d'acceuil
 
-![img](./sreenshot/details.png)
+![img](./sreenshots/details.png)
 
 #### Recapitulatif
 
 Cette page est accessible via la page de la charte, elle permet de terminer le processus d'achat et vider la charte
 
-![img](./sreenshot/recaputulatif.png)
+![img](./sreenshots/recapitulatif.png)
 
 
 
@@ -99,6 +101,6 @@ les versions des technologies dans ce projet
 | Technologie Name | Version |
 | :--------------- | :-----: |
 | ionic            | 6.18.2  |
-| angular          | 13.1.3  |
+| angular          | 13.2.6  |
 | npm              | 16.13.2 |
 | firebase         | 10.4.2  |
